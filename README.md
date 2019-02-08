@@ -16,4 +16,5 @@ Dependences:
 
 
 Page source:
+
  https://pywavelets.readthedocs.io/en/latest/
