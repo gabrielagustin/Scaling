@@ -1,7 +1,6 @@
 # Scaling
 
-Wavelet Transforms
-Principal Compones
+Wavelet Transforms and Principal component analysis (PCA)
 
 
 
