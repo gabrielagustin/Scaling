@@ -1,15 +1,19 @@
 # Scaling
-En este repositorio se encuentran....
+
+Wavelet Transforms
+Principal Compones
+
 
 
 
 Dependences:
-
+    
+    python - pywt
     python - sklearn
-    python - pandas
+    python - scipy
     python - NumPy
     python - Matplolib
 
 
 Page source:
- https://scikit-learn.org/stable/
+ https://pywavelets.readthedocs.io/en/latest/
