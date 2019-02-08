@@ -5,13 +5,13 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 
 
-path = "/media/gag/TOURO Mobile/Trabajo_Sentinel_NDVI_CONAE/Landsat8/L_2015-06-18/"
+path = "/.../Landsat8/L_2015-06-18/"
 nameFile = "NDVI_recortado"
 
 src_ds_L8, bandL8, GeoTL8, Project = functions.openFileHDF2(path, nameFile, 1)
 print bandL8.shape
 
-path = "/media/gag/TOURO Mobile/Trabajo_Sentinel_NDVI_CONAE/MODIS/2015-06-26/"
+path = "/.../MODIS/2015-06-26/"
 nameFile = "NDVI_reprojectado_recortado"
 src_ds_Modis, bandModis, GeoTModis, Project = functions.openFileHDF2(path, nameFile, 1)
 print bandModis.shape
