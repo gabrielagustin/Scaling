@@ -7,6 +7,7 @@ Wavelet Transforms and Principal component analysis (PCA)
 
 Dependences:
     
+    python - Gdal
     python - pywt
     python - sklearn
     python - scipy
