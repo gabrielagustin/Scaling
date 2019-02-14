@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/python
 
+"""
+Created on Tue Jul 25 11:48:04 2017
+@author: gag 
+
+"""
+
+
 import numpy as np
 import scipy.signal as sg
 from osgeo import gdal, ogr, gdalconst

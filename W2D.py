@@ -1,4 +1,14 @@
 # -*- coding: utf-8 -*-
+#!/usr/bin/python
+
+"""
+Created on Wed May 10 09:24:04 2017
+@author: gag 
+
+"""
+
+
+
 import functions
 import numpy as np
 import matplotlib.pyplot as plt

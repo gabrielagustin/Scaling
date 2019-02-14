@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/python
+
+"""
+Created on Sun Mar 12 18:59:04 2017
+@author: gag 
+
+"""
+
+
 import numpy as np
 import functions
 from sklearn.decomposition import PCA
