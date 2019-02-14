@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/python
 
+"""
+Created on Tue Jun 06 10:16:04 2017
+@author: gag 
+
+"""
 import numpy as np
 import scipy.signal as sg
 import matplotlib.pyplot as plt
@@ -50,8 +55,7 @@ def filterCoiflets(orden):
     high = functions.invFilter(wavelet.dec_hi)
     return low, high
 
-
-
+# Ondita Hat
 
 def filterHat(orden):
     a = 4
@@ -59,6 +63,7 @@ def filterHat(orden):
     high = sg.qmf(low)
     return low, high
 
+# Ondita Morlet
 
 def filterMorlet(orden):
     low = np.real(sg.morlet(orden, w = 5, s=1.0))
@@ -66,7 +71,7 @@ def filterMorlet(orden):
     high = sg.qmf(low)
     return low, high
 
-
+# Ondita Bior
 
 def filterBior():
     print pywt.families()
@@ -80,13 +85,7 @@ def filterBior():
 
 
 
-
-
-
-
-
-
-### Cohen-Daubechies-Feauveau wavelet
+### Ondita Cohen-Daubechies-Feauveau wavelet
 def filterCDF(orden):
     low = np.zeros((9, 1))
     low[0] = 0
@@ -114,8 +113,7 @@ def filterCDF(orden):
     return low.flatten(), high.flatten()
 
 
-
-
+# función que invierte el filtro
 def invFilter (filt):
     N = len(filt)
     invFilt = np.zeros(N)
