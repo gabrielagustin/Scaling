@@ -6,6 +6,7 @@ Created on Tue Jun 06 10:16:04 2017
 @author: gag 
 
 """
+
 import numpy as np
 import scipy.signal as sg
 import matplotlib.pyplot as plt

@@ -1,47 +1,70 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/python
 
-import matplotlib.pyplot as plt
+"""
+Created on Tue May 30 11:58:04 2017
+@author: gag 
+
+"""
+
+
+
+mport matplotlib.pyplot as plt
 import functions
 import numpy as np
 from osgeo import gdal, ogr
 import matplotlib.pyplot as plt
 from matplotlib import cm
 import sys
-
 import scipy.misc
 
 
-def downscaling(aprox, highF, lowF, desp):
+def downscaling(aprox, det1, det2, det3, highF, lowF, desp):
     imRec = []
     sizeF = len(lowF)
     #print sizeF
 
     #las matrices de entrada se sobremuestrean por columnas
-    aprox2 = functions.sobreMuestreoColumnas(aprox)
+    aprox2C = functions.sobreMuestreoColumnas(aprox)
+    det12C = functions.sobreMuestreoColumnas(det1)
+    det22C = functions.sobreMuestreoColumnas(det2)
+    det32C = functions.sobreMuestreoColumnas(det3)
 
-    lrow, lcol = aprox2.shape
-    aprox2L = aprox2
+    lrow, lcol = aprox2C.shape
+    aproxL = aprox2C
+    det1H = det12C
+    det2L = det22C
+    det3H = det32C
 
     for i in range(0, lrow):
         # a cada fila de aprox se le aplica ef filtro low
-        aprox2L[i, :] = functions.applyFilterRet(aprox2[i, :], lowF, desp)
+        aproxL[i, :] = functions.applyFilterRet(aprox2C[i, :], lowF, desp)
+        det1H[i, :] = functions.applyFilterRet(det12C[i, :], highF, desp)
+        det2L[i, :] = functions.applyFilterRet(det22C[i, :], lowF, desp)
+        det3H[i, :] = functions.applyFilterRet(det32C[i, :], highF, desp)
+
+
+    # se realiza la suma de las matrices luego de aplicar los filtros
+    det3Hdet2L = det3H+det2L
+    det1HAproxL = det1H+aproxL
 
     #aprox2L = functions.repeatF(aprox2L,n)
     # a estas dos matrices se las sobremuestrea por filas
-    aprox2L2 = functions.sobreMuestreoFilas(aprox2L)
-    aprox2L2L = aprox2L2
+    R1 = functions.sobreMuestreoFilas(det3Hdet2L)
+    R2 = functions.sobreMuestreoFilas(det1HAproxL)
 
+    R1L = R1
+    R2H = R2
     # se le aplica el filtro por columnas y se crean
     # dos matrices nuevas
-    lrow, lcolumn = aprox2L2L.shape
+    lrow, lcolumn = R1.shape
     for j in range(0, lcolumn):
         # se le aplica el filtro h
-        aprox2L2L[:, j] = functions.applyFilterRet(aprox2L2[:, j].T, lowF, desp)
-
+        R1L[:, j] = functions.applyFilterRet(R1[:, j].T, highF , desp)
+        R2H[:, j] = functions.applyFilterRet(R2[:, j].T, lowF, desp)
     # con las matrices obtenidas se calcula la imagen reconstruida
-    imRec = (aprox2L2L)
-    imRec = imRec * 2.0
+    imRec = (R1L + R2H)
+    imRec = imRec * 0.5
 
     return imRec
 
@@ -100,20 +123,32 @@ def applyDownscalingN(nTimes, typeFilter, orderFilter, path, nameFileIn):
     #nRow, nCol = nBand.shape
     print nRow, nCol
     print "Tamaño original: " + str(nRow)+ " - " + str(nCol)
-    aprox = nBand
+    aprox = nBand * 255.0
     maxI = np.max(aprox)
     minI = np.min(aprox)
     print "maximo: " + str(maxI)
     print "minimo: " + str(minI)
     for i in range(0, nTimes):
         ###
+        #np.random.seed(i)
         print "paso n:" + str( i + 1)
-        img = downscaling(aprox, high, low, desp)
+        nRow, nCol = aprox.shape
+        det1 = det2 = det3 = np.zeros((nRow, nCol))
+        det1 = det2 = det3 = (np.random.rand(nRow, nCol))*2.0-1.0
+        #print det1
+        #det1 = ((np.random.rand(nRow, nCol))*2-1)#*255
+        ##print det1
+        #det2 = ((np.random.rand(nRow, nCol))*2-1)#*255
+        ##print det2
+        #det3 = ((np.random.rand(nRow, nCol))*2-1)#*255
+        ##print det3
+        img = downscaling(aprox, det1, det2, det3, high, low, desp)
         imgNew = np.array(img)
 
         nRow, nCol = imgNew.shape
         aprox = imgNew
-    text = "_" + "Down" + "_" +"_" + str(nCol) + '_' + str(nRow)
+        aprox = aprox / 255.0
+    text = "_" + "Down_2_" + "_" + str(nCol) + '_' + str(nRow)
 
     # se crea un nuevo archivo HDR, con el mismo header pero diferente banda
     nameFileOut = str(nameFileIn + text + "_" + str(typeFilter) + "_" +str(orderFilter))
@@ -121,7 +156,6 @@ def applyDownscalingN(nTimes, typeFilter, orderFilter, path, nameFileIn):
     nuevo = (GeoT[0], GeoT[1]/(2**float(nTimes)), GeoT[2], GeoT[3], GeoT[4], GeoT[5]/(2**float(nTimes)))
     #print nuevo
     GeoT = nuevo
-
     print "Tamaño Final: " + str(nRow)+ " - " + str(nCol)
     functions.createHDFfile(path, nameFileOut, 'ENVI', aprox, nCol, nRow, GeoT, Project)
     src_ds = None
@@ -129,22 +163,12 @@ def applyDownscalingN(nTimes, typeFilter, orderFilter, path, nameFileIn):
 
 if __name__ == "__main__":
 
-    #nameFile = "lena.jpg"
+    nameFile = "lena.jpg"
     #path = "/media/ggarcia/TOURO Mobile/Scaling/img/"
     #nameFile = "img_georeference_subset"
-    #path = "/media/gag/TOURO Mobile/Scaling/img/"
+    path = "/media/gag/TOURO Mobile/Scaling/img/"
 
     #nameFile = "NDVI_reprojectado_recortado"
     #path = "/media/gag/TOURO Mobile/Trabajo_Sentinel_NDVI_CONAE/MODIS/2014-12-19/"
-    #path = "/media/gag/TOURO Mobile/Trabajo_Sentinel_NDVI_CONAE/MODIS/2015-06-26/"
-    #nameFile = "NDVI_reprojectado_recortado"
 
-    #path = "/media/ggarcia/TOURO Mobile/Trabajo_Sentinel_NDVI_CONAE/MODIS/2015-06-26/"
-    #nameFile = "NDVI_reprojectado_recortado"
-
-    path = "/media/gag/TOURO Mobile/Trabajo_Sentinel_NDVI_CONAE/MODIS/2015-06-10/"
-    nameFile = "NDVI_reproyectado_recortado"
-    #path = "/media/ggarcia/TOURO Mobile/MOD02QKM/2015-06-18/"
-    #nameFile = "NDVI_recortado"
-
-    applyDownscalingN(3,"db", 2, path, nameFile)
+    applyDownscalingN(1,"Coiflets", 4, path, nameFile)
