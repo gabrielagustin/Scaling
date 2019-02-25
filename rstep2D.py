@@ -1,5 +1,18 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/python
+"""
+Created on Tue Jul 12 20:16:04 2016
+
+
+@author: gag
+
+Esta funcion realiza un nivel de reconstruccion 2D
+recibe la matrices de descomposicion aprox, det1, det2, det3, los filtros
+y el mapa de colores
+
+"""
+
+
 
 import matplotlib.pyplot as plt
 import functions
@@ -11,10 +24,6 @@ import sys
 
 import scipy.misc
 
-
-# esta funcion realiza un nivel de reconstruccion 2D
-# recibe la matrices de descomposicion aprox, det1, det2, det3, los filtros
-# y el mapa de colores
 
 
 

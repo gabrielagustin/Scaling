@@ -5,6 +5,13 @@
 Created on Wed May 10 09:24:04 2017
 @author: gag 
 
+
+Esta funcion realiza un nivel de reconstruccion 2D
+recibe la matrices de descomposicion aprox, det1, det2, det3, los filtros
+y el mapa de colores
+
+
+
 """
 
 
@@ -73,6 +80,8 @@ def dW2D(img, high, low, level):
             for j in range(0,c):
                 mCoeff[i,j] = m[i,j]
     return mCoeff
+
+
 
 def rstepW2D(aprox, det1, det2, det3, highF, lowF):
     # las matrices de entrada se sobremuestrean por columnas
