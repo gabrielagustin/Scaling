@@ -72,7 +72,12 @@ def downscaling(aprox, det1, det2, det3, highF, lowF, desp):
 
 
 def applyDownscalingN(nTimes, typeFilter, orderFilter, path, nameFileIn):
-
+    """
+    Función que realiza la operación de downscaling nVeces
+    Recibe: numero de veces, tipo de filtro, orden del filtro, directorio y nombre
+    del archivo HDF
+    Retorna: imagen HDF
+    """
     if (typeFilter == "db"):
         low, high = functions.filterDaubechies(orderFilter)
         desp = 0
