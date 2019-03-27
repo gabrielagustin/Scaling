@@ -5,6 +5,10 @@
 Created on Tue Jun 06 10:16:04 2017
 @author: gag 
 
+Script que permite la creación de diferentes filtros, para la 
+aplicación de la transformada ondita, cada filtro puede ser creado
+con diferentes ordenes.
+
 """
 
 import numpy as np
