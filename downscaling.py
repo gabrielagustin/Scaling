@@ -9,7 +9,7 @@ Created on Tue May 30 11:58:04 2017
 
 
 
-mport matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import functions
 import numpy as np
 from osgeo import gdal, ogr
@@ -170,5 +170,8 @@ if __name__ == "__main__":
 
     #nameFile = "NDVI_reprojectado_recortado"
     #path = "/media/gag/TOURO Mobile/Trabajo_Sentinel_NDVI_CONAE/MODIS/2014-12-19/"
-
+    """
+    Types of filters available
+    """
     applyDownscalingN(1,"Coiflets", 4, path, nameFile)
+
