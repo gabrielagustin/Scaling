@@ -20,6 +20,11 @@ import scipy.misc
 
 
 def downscaling(aprox, det1, det2, det3, highF, lowF, desp):
+    """
+    Función que realiza 1 nivel de recontruc
+    Recibe: 
+    Retorna: 
+    """
     imRec = []
     sizeF = len(lowF)
     #print sizeF
