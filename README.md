@@ -1,6 +1,8 @@
 # Scaling
 
-Wavelet Transforms and Principal component analysis (PCA)
+An algorithm to perform the rescaling of the satellite images is presented. 
+
+The techniques used are: wavelet transforms and principal component analysis (PCA).
 
 
 
