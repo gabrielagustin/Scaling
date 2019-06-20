@@ -9,7 +9,7 @@ An algorithm to perform the rescaling of the satellite images is presented. The 
   <img width=650 src="fusionWavelets.png"/>
 </p>
 
-* Fusion using PCA. For this, first the adaptation of the low resolution image to the hi resolution image is performed, that is, the size of the pixels is modified by an interpolation method; in this case, the nearest neighbor method was used. Then the decompositions of both are combined, exchanging the first coefficient of the image with fine spatial resolution for the first component of the image with coarse spatial resolution, as detailed in the scheme presented in the following image. Finally, the image reconstruction is performed.
+* Fusion using PCA, the adaptation of the low resolution image to the hi resolution image is performed, that is, pixels size is modified by an interpolation method; in this case, the nearest neighbor method was used. Then the decompositions of both images are combined, exchanging the first coefficient of the image with fine spatial resolution for the first component of the image with coarse spatial resolution, as detailed in the scheme presented in the following image. Finally, the image reconstruction is performed.
 
 <p align="center">
   <img width=650 src="fusionPCA.png"/>
