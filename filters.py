@@ -5,9 +5,8 @@
 Created on Tue Jun 06 10:16:04 2017
 @author: gag 
 
-Script que permite la creación de diferentes filtros, para la 
-aplicación de la transformada ondita, cada filtro puede ser creado
-con diferentes ordenes.
+Script that allows the creation of different filters, for the application of the wavelet transform,
+each filter can be created with different orders.
 
 """
 
@@ -174,3 +173,4 @@ if __name__ == "__main__":
     #fig2.plot(hi)
 
     plt.show()
+

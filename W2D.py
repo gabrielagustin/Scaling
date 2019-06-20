@@ -6,10 +6,8 @@ Created on Wed May 10 09:24:04 2017
 @author: gag 
 
 
-Esta funcion realiza un nivel de reconstruccion 2D
-recibe la matrices de descomposicion aprox, det1, det2, det3, los filtros
-y el mapa de colores
-
+Decomposition and reconstruction using the wavelet transform. Both processes are performed one step at a time,
+then they can be repeated N times.
 
 
 """
@@ -184,8 +182,6 @@ def rW2D(matrix, highF, lowF, level):
     return imRec
 
 
-def returnAprox(matrix, level):
-    return
 
 if __name__ == "__main__":
 
