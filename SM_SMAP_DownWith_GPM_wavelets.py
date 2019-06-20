@@ -1,6 +1,15 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/python
 
+"""
+Created on Tue May 30 11:58:04 2017
+@author: gag 
+
+Script that applies the wavelet transform to modify the spatial resolution of satellite images. 
+It uses two image sources, one with low resolution and another with better resolution.
+
+"""
+
 from osgeo import gdal, ogr, gdalconst
 import matplotlib
 import matplotlib.pyplot as plt
@@ -17,8 +26,7 @@ import filters
 
 matplotlib.use('GTKAgg')
 
-#dir = "ggarcia"
-dir = "gag"
+dir = "...."
 
 
 fechaSMAP = []
@@ -261,6 +269,6 @@ for ii in range(0, len(fechaSMAP)):
     #
 
 
-
-
     #plt.show()
+
+

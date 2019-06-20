@@ -1,3 +1,16 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/python
+
+"""
+Created on Tue May 30 11:58:04 2017
+@author: gag 
+
+Script that applies the PCA method to modify the spatial resolution of satellite images. 
+It uses two image sources, one with low resolution and another with better resolution.
+
+"""
+
+
 import numpy as np
 import functions
 from sklearn.decomposition import PCA
