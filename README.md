@@ -23,8 +23,6 @@ Dependences:
 
 Pages sources:
 
-      PyWavelets - https://pywavelets.readthedocs.io/en/latest/
-      
-      PCA decomposition - https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html
-
-      More details - https://ieeexplore.ieee.org/document/7996007
+  PyWavelets: https://pywavelets.readthedocs.io/en/latest/
+  PCA decomposition: https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html
+  More details: https://ieeexplore.ieee.org/document/7996007
