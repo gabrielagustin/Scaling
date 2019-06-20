@@ -14,37 +14,17 @@ Type filter: "db": Daubechies, "Symlets", "Haar", "Coiflets", "CDF", "Morlet"
 
 """
 
-
 import os
 import downscaling
 import numpy as np
 
 
-dir = "gag"
-
-### diario
-
-#path = "/media/gag/TOURO Mobile/Trabajo_Sentinel_NDVI_CONAE/Nuevas_Sentinel_2/Modis/"
-
-#path = "/media/"+dir+"/TOURO Mobile/Trabajo_Sentinel_NDVI_CONAE/MODIS/"
-##nameFile = "NDVI_reproyectado_recortado"
-#nameFile = "NDVI_reprojectado_recortado"
-### producto
-#path = "/media/gag/TOURO Mobile/Trabajo_Sentinel_NDVI_CONAE/Cambio_Escala/MOD13Q1/"
-#nameFile = "UTM_recort"
-
-
-
 fechaModis = []
 
 fechaModis.append("2015-06-26")
-
 fechaModis.append("2015-07-28")
-
 fechaModis.append("2015-10-16")
-
 fechaModis.append("2015-12-19")
-
 fechaModis.append("2016-03-21")
 
 
@@ -55,8 +35,7 @@ fechaModis.append("2016-03-21")
 for i in range(0, len(fechaModis)):
     #print i
     #print "Archivo: " + str(ficheros[i])
-    #downscaling.applyDownscalingN(3,"Coiflets", 4, str(path +ficheros[i] + '/' ), nameFile)
-    path = "/.../MODIS/"+fechaModis[i]+"/"
+    path = "/.../Modis/" + fechaModis[i] + "/"
     nameFile = "NDVI_reproyectado_recortado"
 
     # parametros nTimes, typeFilter, orderFilter, path, nameFileIn, orderFilter
