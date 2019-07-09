@@ -5,14 +5,10 @@
 Created on Wed May 10 09:24:04 2017
 @author: gag 
 
-
 Decomposition and reconstruction using the wavelet transform. Both processes are performed one step at a time,
 then they can be repeated N times.
 
-
 """
-
-
 
 import functions
 import numpy as np
@@ -22,7 +18,16 @@ import copy
 
 
 def dstepW2D(img, highF, lowF):
-    ### funcion que realiza la descomposicion Wavelet un nivel
+    """ Function that performs the Wavelet decomposition one level
+    Parameters:
+    -----------
+    img: a raster
+    highF, lowF: pass high and pass under filter 
+    Returns: 
+    --------
+    coeficcients aproximation, detail1, detail2, detail3: raster descomposition
+    """
+    
     lRows, lColumns = img.shape
     #print img.shape
     imgH = np.zeros((lRows, lColumns))
@@ -50,7 +55,6 @@ def dstepW2D(img, highF, lowF):
         imgLSF_H[:, j] = functions.applyFilterRet(imgLSF[:, j], highF, 0)
         imgLSF_L[:, j] = functions.applyFilterRet(imgLSF[:, j], lowF, 0)
 
-
     # a estas dos matrices se las submuestrea por filas
     det3 = functions.subMuestreoFilas(imgHSF_H)*0.5
     det2 = functions.subMuestreoFilas(imgHSF_L)*0.5
@@ -62,6 +66,16 @@ def dstepW2D(img, highF, lowF):
 
 
 def dW2D(img, high, low, level):
+    """ Function that performs the Wavelet decomposition N levels
+    Parameters:
+    -----------
+    img: a raster
+    highF, lowF: pass high and pass under filter 
+    level: N levels of descoposition
+    Returns: 
+    --------
+    mCoeff: representation of the N levels descomposition
+    """
     # funcion que realiza la descomposicion Wavelet N niveles
     aprox, det1, det2, det3 = dstepW2D(img, high, low)
     m1 = np.concatenate((aprox, det1),axis=0)
