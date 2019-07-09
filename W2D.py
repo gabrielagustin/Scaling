@@ -96,6 +96,17 @@ def dW2D(img, high, low, level):
 
 
 def rstepW2D(aprox, det1, det2, det3, highF, lowF):
+    """ Function that performs the Wavelet reconstruction one level
+    Parameters:
+    -----------
+    coeficcients aproximation, detail1, detail2, detail3: raster descomposition
+    highF, lowF: pass high and pass under filter 
+    level: N levels of descoposition
+    Returns: 
+    --------
+    img: raster reconstructed
+    """
+
     # las matrices de entrada se sobremuestrean por columnas
     ax = functions.sobreMuestreoColumnas(aprox)
     d1 = functions.sobreMuestreoColumnas(det1)
@@ -134,11 +145,22 @@ def rstepW2D(aprox, det1, det2, det3, highF, lowF):
 
 
 def rW2D(matrix, highF, lowF, level):
-    ### esta funcion realiza la reconstruccion Wavelet 2D a partir de la matriz
-    ### con el siguiente formato
-    ###   Aprox_L2    D1_L2       D1_L1
-    ###     D2_L2     D3_L2
-    ###           D2_L1          D3_L1
+    """ Function that performs the Wavelet 2D reconstruction
+    Parameters:
+    -----------
+    matrix: the matrix with the following format 
+
+                    Aprox_L2    D1_L2       D1_L1
+                      D2_L2     D3_L2
+                            D2_L1           D3_L1
+
+    highF, lowF: pass high and pass under filter 
+    level: N levels of reconstruction
+    Returns: 
+    --------
+    imRec: raster reconstructed
+    """
+
     r,c = matrix.shape
     #imRec = np.zeros((r,c))
 
