@@ -15,6 +15,10 @@ An algorithm to perform the rescaling of the satellite images is presented. The 
   <img width=650 src="fusionPCA.png"/>
 </p>
 
+Satellite Data:
+
+  - SMAP L3 Soil Moisture Passive (SMAP_L3_SM_P)
+  - Global Precipitation Measurement (GPM). Product: Integrated Multi-satellitE Retrievals for GPM (IMERG)
 
 Dependences:
     
