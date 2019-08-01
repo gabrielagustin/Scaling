@@ -25,6 +25,12 @@ More details: https://ieeexplore.ieee.org/document/7996007
 
 ## Resample NDVI maps using wavelet transform
 
+<p align="center">
+  <img width=650 src="scaling_NDVI_Modis.png"/>
+</p>
+
+
+
 Dependences:
     
     python - Gdal
