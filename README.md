@@ -20,6 +20,11 @@ Satellite Data:
   - SMAP L3 Soil Moisture Passive (SMAP_L3_SM_P)
   - Global Precipitation Measurement (GPM). Product: Integrated Multi-satellitE Retrievals for GPM (IMERG)
 
+More details: https://ieeexplore.ieee.org/document/7996007
+
+
+## Resample NDVI maps using wavelet transform
+
 Dependences:
     
     python - Gdal
@@ -36,4 +41,3 @@ Pages sources:
 
   PCA decomposition: https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html
 
-  More details: https://ieeexplore.ieee.org/document/7996007
