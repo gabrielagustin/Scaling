@@ -1,5 +1,17 @@
 # Scaling
 
+## Resample NDVI maps using wavelet transform
+
+It is proposed to use the reconstruction of the signal from the original image and thus increase its spatial resolution. Reconstruction is performed using the inverse discrete wavelet transform (IDWT) in two dimensions. For which, it is taken as the initial approximation coefficient (A_{ij}) the MODIS image with 250 m spatial resolution, and the IDWT is applied three times. The detail coefficients are assumed the same size as the approximation image but equal to zero. The proposed scheme is shown in the following figure:
+
+<p align="center">
+  <img width=650 src="scaling_NDVI_Modis.png"/>
+</p>
+
+
+
+## Downscaling SMAP soil moisture images with wavelets transform and PCA method
+
 An algorithm to perform the rescaling of the satellite images is presented. The techniques used are: wavelet transforms (WT) and principal component analysis (PCA).
 
 
@@ -23,13 +35,6 @@ Satellite Data:
 More details: https://ieeexplore.ieee.org/document/7996007
 
 
-## Resample NDVI maps using wavelet transform
-
-It is proposed to use the reconstruction of the signal from the original image and thus increase its spatial resolution. Reconstruction is performed using the inverse discrete wavelet transform (IDWT) in two dimensions. For which, it is taken as the initial approximation coefficient ($$A_{ij}$$) the MODIS image with 250 m spatial resolution, and the IDWT is applied three times. The detail coefficients are assumed the same size as the approximation image but equal to zero. The proposed scheme is shown in the following figure:
-
-<p align="center">
-  <img width=650 src="scaling_NDVI_Modis.png"/>
-</p>
 
 
 
