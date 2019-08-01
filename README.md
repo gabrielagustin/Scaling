@@ -8,6 +8,10 @@ It is proposed to use the reconstruction of the signal from the original image a
   <img width=650 src="scaling_NDVI_Modis.png"/>
 </p>
 
+Different wavelet families have been tested: 'Haar', 'Daubechies', 'Coiflets' and 'Symlets', with different orders to make the resolution change. More details: https://pywavelets.readthedocs.io/en/latest/ref/wavelets.html
+
+Finally, the NDVI MODIS images rescaled at 30 m were contrasted with Landsat 8 images to check the performance of each configuration.
+
 
 
 ## Downscaling SMAP soil moisture images with wavelets transform and PCA method
