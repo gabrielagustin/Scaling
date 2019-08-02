@@ -5,20 +5,22 @@
 Created on Tue May 30 11:58:04 2017
 @author: gag 
 
+Script where the rescaling of NDVI MODIS images is performed using wavelet transform
 """
 
-
-
-import matplotlib.pyplot as plt
-import functions
-import numpy as np
+from matplotlib import cm
 from osgeo import gdal, ogr
 import matplotlib.pyplot as plt
-from matplotlib import cm
-import sys
+import matplotlib.pyplot as plt
+import numpy as np
 import scipy.misc
+import sys
 
+
+import functions
 import W2D
+
+
 
 
 def downscaling(aprox, det1, det2, det3, highF, lowF, desp):
@@ -167,7 +169,7 @@ def applyDownscalingN(nTimes, typeFilter, orderFilter, path, nameFileIn):
 
         #### acá debo modificar
         ### rW2D
-
+        ### hace un nivel de recontruccion
         img = downscaling(aprox, det1, det2, det3, high, low, desp)
         imgNew = np.array(img)
 
