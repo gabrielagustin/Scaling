@@ -18,13 +18,24 @@ from matplotlib import cm
 import sys
 import scipy.misc
 
+import W2D
+
 
 def downscaling(aprox, det1, det2, det3, highF, lowF, desp):
+    """ Function that performs 1 level of reconstruction
+    Parameters:
+    -----------
+    aprox, det1, det2, det3 : full path of the raster image
+    highF, highL:
+    nroBand: number of the band to read
+    Returns:
+    --------
+    src_ds: raster
+    band: raster as arrays
+    GeoT: raster georeference info
+    Project: projections
     """
-    Función que realiza 1 nivel de recontruc
-    Recibe: 
-    Retorna: 
-    """
+
     imRec = []
     sizeF = len(lowF)
     #print sizeF
@@ -152,6 +163,11 @@ def applyDownscalingN(nTimes, typeFilter, orderFilter, path, nameFileIn):
         ##print det2
         #det3 = ((np.random.rand(nRow, nCol))*2-1)#*255
         ##print det3
+
+
+        #### acá debo modificar
+        ### rW2D
+
         img = downscaling(aprox, det1, det2, det3, high, low, desp)
         imgNew = np.array(img)
 

@@ -10,11 +10,12 @@ then they can be repeated N times.
 
 """
 
-import functions
-import numpy as np
+import copy
 import matplotlib.pyplot as plt
 from matplotlib import cm
-import copy
+import numpy as np
+
+import functions
 
 
 def dstepW2D(img, highF, lowF):
