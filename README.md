@@ -11,7 +11,7 @@ It is proposed to use the reconstruction of the signal from the original image a
 Satellite Data:
 
   - TERRA-MODIS product that provides NDVI data at a spatial resolution of 250 m every sixteen days (MOD13Q1)
-  - Landsat 8. 
+  - Landsat 8
 
 
 Different wavelet families have been tested: 'Haar', 'Daubechies', 'Coiflets' and 'Symlets', with different orders to make the resolution change. More details: https://pywavelets.readthedocs.io/en/latest/ref/wavelets.html
